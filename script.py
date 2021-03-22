@@ -1,11 +1,13 @@
 #! /usr/bin/env python3
 
-# Alex Burns - G00376755
+# Alex Burns
 
 # Based on code from the site Real Python found here: https://realpython.com/command-line-interfaces-python-argparse/
 
 # Python library imports.
 import argparse
+
+from test import test_shunt
 
 # Main.
 def main():
@@ -31,7 +33,7 @@ def main():
         print(f'{args.regex}, {args.path}')
     # Else if --test or -t is passed as optional argument.
     elif args.test:
-        print(args.test)
+        test_shunt()
     # Else if arguments are not one of the accepted formats (script.py <regex> <path> or script.py --test/-t)
     else:
         print('Please refer to documentation or --help/-h for valid program arguments')

@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-# Alex Burns
+# Alex Burns - G00376755
 
 # Based on code from the site Real Python found here: https://realpython.com/command-line-interfaces-python-argparse/
 

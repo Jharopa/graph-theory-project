@@ -2,7 +2,7 @@
 
 """Shunting Yard for Regular Expressions"""
 
-# Alex Burns
+# Alex Burns - G00376755
 
 # Based on code provided by Ian McLoughlin found here: https://github.com/ianmcloughlin/graph-theory-python/blob/main/shunting-re.py
 # Original code based on shunting yard psudocode found here: https://en.wikipedia.org/wiki/Shunting-yard_algorithm

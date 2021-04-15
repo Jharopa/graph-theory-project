@@ -18,3 +18,9 @@ Below this description you will find several sections contianing the following i
   > - What is a regular expression?
   > - How do regular expressions differ across implementations?
   > - Can all formal languages be encoded as regular expressions?
+
+## Instructions
+
+## Algorithms
+
+## Awnsers

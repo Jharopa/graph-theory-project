@@ -15,6 +15,19 @@ class State:
         # Boolean marks the current state as or not as an accept state.
         self.accept = accept
 
+    def followes(self):
+        """Returns the set of states that are pointed to by this state that have e arrows"""
+        # Include current state in returned set.
+        states = {self}
+        # If this state has e arrows (label is None).
+        if self.labels is None:
+                # Loop through this state's arrows.
+                for state in self.arrows:
+                    # Incoporate that state's e arrows in the set states.
+                    states = (states | state.followes())
+        # Return the set of states.
+        return states
+
 class NFA:
     """Class representation of of a non-deterministic finite automaton."""
     def __init__(self, start, end):
@@ -22,6 +35,25 @@ class NFA:
         self.start = start
         # End state of the current NFA.
         self.end = end
+
+    def match(self, s):
+        """Return true iff this NFA(instance) matches the string s."""
+        # Set of previous states that we are still in.
+        previous = self.start.followes()
+        # Loop through the string s a character at a time.
+        for c in s:
+            # Start with an empty set of current states.
+            current = set()
+            # Loop through the states in set previous. 
+            for state in previous:
+                # If there is a c arrow from the current state.
+                if state.label == c:
+                    # Add followes for next state.
+                    current = (current | state[0].followes())
+            # Replace the set previous with the set current.
+            previous = current
+        # If the NFAs end state is in the set previous the string has matched, else it has not matched.
+        return (self.end is previous)
 
 def re_to_nfa(postfix):
     # NFA stack used in thompson's construction algorithm.

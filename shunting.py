@@ -58,5 +58,5 @@ def shunt(infix):
         postfix = postfix + stack[-1]
         # Remove operator from shunting yard stack.
         stack = stack[:-1]
-
+    
     return postfix

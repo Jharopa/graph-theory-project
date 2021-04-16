@@ -20,7 +20,7 @@ class State:
         # Include current state in returned set.
         states = {self}
         # If this state has e arrows (label is None).
-        if self.labels is None:
+        if self.label is None:
                 # Loop through this state's arrows.
                 for state in self.arrows:
                     # Incoporate that state's e arrows in the set states.
@@ -49,11 +49,11 @@ class NFA:
                 # If there is a c arrow from the current state.
                 if state.label == c:
                     # Add followes for next state.
-                    current = (current | state[0].followes())
+                    current = (current | state.arrows[0].followes())
             # Replace the set previous with the set current.
             previous = current
         # If the NFAs end state is in the set previous the string has matched, else it has not matched.
-        return (self.end is previous)
+        return (self.end in previous)
 
 def re_to_nfa(postfix):
     # NFA stack used in thompson's construction algorithm.
@@ -81,7 +81,7 @@ def re_to_nfa(postfix):
 
         # OR
         # Else if current character is the special character for or '|'.
-        elif c == '|'
+        elif c == '|':
             # Pop off and store NFA at the top of NFA stack.
             nfa2 = stack[-1]
             stack = stack[:-1]
@@ -92,7 +92,8 @@ def re_to_nfa(postfix):
             start = State(None, [], False)
             end = State(None, [], True)
             # Point arrows from newly made start state to start states nfa1 and nfa2.
-            start.arrows.append(nfa1.start, nfa2.start)
+            start.arrows.append(nfa1.start)
+            start.arrows.append(nfa2.start)
             # Set nfa1 and nfa2's end states to non-accept.
             nfa1.end.accept = False
             nfa2.end.accept = False

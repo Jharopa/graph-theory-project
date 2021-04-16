@@ -7,7 +7,7 @@
 # Python library imports.
 import argparse
 
-from test import test_shunt
+from test import test_shunt, test_nfa
 
 # Main.
 def main():
@@ -34,6 +34,7 @@ def main():
     # Else if --test or -t is passed as optional argument.
     elif args.test:
         test_shunt()
+        test_nfa()
     # Else if arguments are not one of the accepted formats (script.py <regex> <path> or script.py --test/-t)
     else:
         print('Please refer to documentation or --help/-h for valid program arguments')

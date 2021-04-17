@@ -11,7 +11,7 @@ The program must be coded from scratch. You cannot use any external libraries ot
 Therefore in this reposistory you will the find files for a python program that builds a regular expression engine from scratch along with the functionality needed to use said engine to search a text file and return the lines that contain matches to a user defined regular expression. There will also be python file containing a set of tests that can be used to test the different parts of the regular expression engine and the file searching functionality.
 
 Below this description you will find several sections contianing the following information:
-- Instructions - Setting up your enviroment, running and using the program, running the tests.
+- Instructions - Setting up your enviroment, running the program, and running the tests.
 - Algorithms - Explanation of the algorithms employed to create this program.
 - Answers - The answers to three questions present in the brief for this project:
 
@@ -28,9 +28,9 @@ git clone https://github.com/Jharopa/graph-theory-project.git
 ```
 
 ### Running the program
-Before running the program you must provided the text file you would like to search by placing said text file into the `graph-theory-project` directory alongside `script.py`. Once the file you would like to search is within the directory again using your systems CLI navigate into the `graph-theory-project` directory.
+Before running the program you must provide the text file you would like to search by placing said text file into the `graph-theory-project` directory alongside `script.py`. Once the file you would like to search is within the directory, again using your systems CLI, navigate into the `graph-theory-project` directory.
 
-The program can then be run using the command `python script.py <regex> <file>` where the `<regex>` is the regular expression you would like to search against and `<file>` is the name of the file you would like to search. Included in this repo is a text file called `lorem.txt` used as part of running the test, using this command to search this file would look like this:
+The program can then be run using the command `python script.py <regex> <file>` where the `<regex>` is the regular expression you would like to search against and `<file>` is the name of the file you would like to search. Included in this repo is a text file called `lorem.txt` used as part of the tests, using this command to search this file would look like this:
 ```bash
 python scripts.py (o.o)|(I.n) lorem.txt
 ```
@@ -40,7 +40,7 @@ To run the premade tests that are included with the program you can use the comm
 ```bash
 python scripts.py --test
 ```
-This will produce the results for the tests covering the three main parts of of this program, the Shunting yard algorithm implementation, the Thompson's construction algorithm implementation, and the file searching functionality.
+This will produce the results of the tests in the CLI, these tests cover the three main parts of of this program, the Shunting yard algorithm implementation, the Thompson's construction algorithm implementation, and the file searching functionality.
 
 ## Algorithms
 

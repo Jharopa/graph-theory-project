@@ -21,6 +21,27 @@ Below this description you will find several sections contianing the following i
 
 ## Instructions
 
+### Enviroment Setup
+To setup the enviroment to run this program you must first have both [python](https://www.python.org/downloads/) and [GIT](https://git-scm.com/downloads) installed. Once both of these have been acquired and installed, using a your systems CLI navigate to where you would like to install this program and clone this repository using the command:
+```bash
+git clone https://github.com/Jharopa/graph-theory-project.git
+```
+
+### Running the program
+Before running the program you must provided the text file you would like to search by placing said text file into the `graph-theory-project` directory alongside `script.py`. Once the file you would like to search is within the directory again using your systems CLI navigate into the `graph-theory-project` directory.
+
+The program can then be run using the command `python script.py <regex> <file>` where the `<regex>` is the regular expression you would like to search against and `<file>` is the name of the file you would like to search. Included in this repo is a text file called `lorem.txt` used as part of running the test, using this command to search this file would look like this:
+```bash
+python scripts.py (o.o)|(I.n) lorem.txt
+```
+
+### Running the tests
+To run the premade tests that are included with the program you can use the command:
+```bash
+python scripts.py --test
+```
+This will produce the results for the tests covering the three main parts of of this program, the Shunting yard algorithm implementation, the Thompson's construction algorithm implementation, and the file searching functionality.
+
 ## Algorithms
 
 ## Awnsers

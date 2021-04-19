@@ -45,4 +45,9 @@ This will produce the results of the tests in the CLI, these tests cover the thr
 
 ## Algorithms
 
+### Shunting Yard Algorithm
+An implementation of the [Shunting Yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm) is employed in this program, found in `shunting.py`. This particular implementation accepts a user defined regular expression in infix notation as input, and outputs the same regular expression in postfix notation, an example being the infix `a.b|c` would be converted to `ab.c|`. The conversion from infix to postfix is facilitated through the use of several stack data structures with the operators and operands of an expression being moved between stacks in a specific order based on a defined order of precedence.
+
+An excellent illustration of this process can be found [here](https://upload.wikimedia.org/wikipedia/commons/2/24/Shunting_yard.svg) (Note. this illustration uses the operators `+ - x`, however the algorithm can also be applied to regular expressions and it's operators). This algorithm is neccessary for this program as the next algorithm, Thompson's Construction, requires regular expression in postfix notation as its input.
+
 ## Awnsers

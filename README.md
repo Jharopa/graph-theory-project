@@ -32,8 +32,9 @@ Before running the program you must provide the text file you would like to sear
 
 The program can then be run using the command `python script.py <regex> <file>` where the `<regex>` is the regular expression you would like to search against and `<file>` is the name of the file you would like to search. Included in this repo is a text file called `lorem.txt` used as part of the tests, using this command to search this file would look like this:
 ```bash
-python scripts.py (o.o)|(I.n) lorem.txt
+python scripts.py "(a.b|b*)" example.txt
 ```
+The regular expression should be enclosed in quotes when the `|` character is used as it is an operator used by many system CLI's and the qoutes indicate to the CLI that the `|` should be read as part of the regular expression string.
 
 ### Running the tests
 To run the premade tests that are included with the program you can use the command:

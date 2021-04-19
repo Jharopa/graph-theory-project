@@ -3,7 +3,7 @@ b
 bb
 a
 bab
-aa
+abba
 aa
 aba
 abbbba

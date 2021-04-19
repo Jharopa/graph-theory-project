@@ -8,7 +8,7 @@
 import argparse
 
 # My imports.
-from test import test_shunt, test_nfa
+from test import test_shunt, test_nfa, test_searching
 from checkfile import check_file
 
 # Main.
@@ -38,6 +38,7 @@ def main():
         # Run tests.
         test_shunt()
         test_nfa()
+        test_searching()
     # Else if arguments are not one of the accepted formats (script.py <regex> <path> or script.py --test/-t)
     else:
         print('Please refer to documentation or --help/-h for valid program arguments')

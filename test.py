@@ -7,6 +7,7 @@
 # Function test_nfa based on code provided by Ian McLoughlin found here: https://github.com/ianmcloughlin/graph-theory-python/blob/main/reg.py
 
 # My imports.
+from checkfile import check_file
 from shunting import shunt
 import thompson
 
@@ -47,6 +48,7 @@ def test_nfa():
 
     print("Tests for Thompson's construction algorithm and matching functionality found in thompson.py\n")
 
+    # For each test in tests list.
     for test in tests:
         # Get infix regular expression from list.
         infix = test[0]
@@ -74,3 +76,29 @@ def test_nfa():
 
         # Increment test counter.
         testcount = testcount + 1
+
+def test_searching():
+    # List of regular expressions to test.
+    tests = ["(a.b|b*)", "a.(b.b)*.a", "1.(0.0)*.1"]
+    # Counter for tests.
+    testcount = 1
+
+    print("Tests for file searching functionality found in checkfile.py\n")
+
+    # For each test in tests list.
+    for test in tests:
+        # Print test number and regular expression.
+        print(f"Test:               {testcount}")
+        print(f"Regex:              {test}")
+        print("Lines: ")
+
+        # Call check files function passing it current regex and name of test file.
+        check_file(test, "example.txt")
+
+        # Used to create newline for formatting purposes.
+        print()
+
+        # Increment test counter.
+        testcount = testcount + 1
+
+    

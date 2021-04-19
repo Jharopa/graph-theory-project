@@ -2,6 +2,10 @@
 
 """Project tests"""
 
+# Alex Burns - G00376755
+
+# Function test_nfa based on code provided by Ian McLoughlin found here: https://github.com/ianmcloughlin/graph-theory-python/blob/main/reg.py
+
 # My imports.
 from shunting import shunt
 import thompson
@@ -33,9 +37,9 @@ def test_nfa():
     """Tests NFA creation and matching functionality found in thompson.py using converted infix regular expressions produced by shunt()"""
     # List of lists containing a several infix regular expressions and the strings it is teststing.
     tests = [ 
-        ["(a.b|b*)", ["ab", "b", "bb", "a"]],
-        ["a.(b.b)*.a", ["aa", "abba", "aba"]],
-        ["1.(0.0)*.1", ["11", "100001", "11001"]]
+        ["(a.b|b*)", ["ab", "b", "bb", "a", "bab"]],
+        ["a.(b.b)*.a", ["aa", "abba", "aba", "abbbba"]],
+        ["1.(0.0)*.1", ["11", "100001", "11001", "111"]],
     ]
 
     # Counter for tests.

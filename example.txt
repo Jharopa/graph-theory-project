@@ -1,0 +1,13 @@
+ab
+b
+bb
+a
+bab
+aa
+aa
+aba
+abbbba
+11
+100001
+1001
+11001

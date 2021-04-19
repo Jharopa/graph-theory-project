@@ -50,8 +50,9 @@ class NFA:
                 if state.label == c:
                     # Add followes for next state.
                     current = (current | state.arrows[0].followes())
-            # Replace the set previous with the set current.
-            previous = current
+                # Replace the set previous with the set current.
+                previous = current
+            
         # If the NFAs end state is in the set previous the string has matched, else it has not matched.
         return (self.end in previous)
 

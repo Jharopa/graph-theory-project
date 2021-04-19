@@ -56,10 +56,13 @@ Thompson's Construction is an algorithm that, as mentioned before, takes a regul
 A string can then be checked against the resulting NFA by, starting in the NFAs start state and iterating through each character in the string, traversing between the NFAs states depending on the current character. The string being said to have "matched" the NFA, and the regular expression it was built from, if the string is in the NFAs accept state by the time every character in the string has been iterated through.
 
 The algorithm builds the overall NFA from the postfix regular expression in a recursive manner, creating smaller NFAs when a operand character is read in from the regular expression. An example of the resulting NFA for the character `a` would be structured like this:
+![](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aNFA.PNG)
 (Note the state with the arrow coming in from nowhere is the start state and the double circle is the accept state) 
 
 This NFA is then added to a stack and the process is repeated until an operator is read. When an operator is read the last one or two (depending on the operator read) operand NFA(s) created and pushed to the stack previously, are popped of the stack and used to created a larger NFA which is then pushed back onto the stack. An example of the resulting NFA for expression `ab|` would be structured like this:
+![](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aorb.png)
 (Note that 1.) The new location of the start and accept state for the greater NFA. 2.) The `ε` character, this represents the empty string character, more on this later)
+
 The previous steps are the repeated until the entire regular expression has been read through and the full NFA has been built and assembled.
 
 ## Awnsers

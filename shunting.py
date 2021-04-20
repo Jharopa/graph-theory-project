@@ -20,7 +20,7 @@ def shunt(infix):
     # Loop through the function input a character at a time.
     for c in infix:
         # If c is an operator.
-        if c in {'*', '.', '|'}:
+        if c in {'*', '?', '.', '|'}:
             # Check what is on the shunting yard stack.
             while len(stack) > 0 and stack[-1] != '(' and prec[stack[-1]] >= prec[c]:
                 # Append operator to top of output stack.

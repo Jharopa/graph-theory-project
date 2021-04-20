@@ -79,7 +79,7 @@ def test_nfa():
 
 def test_searching():
     # List of regular expressions to test.
-    tests = ["(a.b|b*)", "a.(b.b)*.a", "1.(0.0)*.1"]
+    tests = ["<.f.o.o.d.>", "<./.f.o.o.d.>", "(<.c.a.l.o.r.i.e.s.>)|(<./.c.a.l.o.r.i.e.s.>)"]
     # Counter for tests.
     testcount = 1
 

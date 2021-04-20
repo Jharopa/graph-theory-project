@@ -107,7 +107,7 @@ def re_to_nfa(postfix):
             stack.append(nfa)
 
         # Kleene Star
-        # Else if current chracter is the special character for kleene start '*'
+        # Else if current chracter is the special character for kleene star '*'
         elif c == '*':
             # Pop off and store NFA at the top of NFA stack.
             nfa1 = stack[-1]
@@ -115,9 +115,9 @@ def re_to_nfa(postfix):
             # Create a start state and end state.
             start = State(None, [], False)
             end = State(None, [], True)
-            # Point arrow from newly made start state at the start state of nfa1.
+            # Point arrow from newly made start state to the start state of nfa1.
             start.arrows.append(nfa1.start)
-            # Point arrow from newly made start state at newly made end state.
+            # Point arrow from newly made start state to newly made end state.
             start.arrows.append(end)
             # Set nfa1's end state to non-accept.
             nfa1.end.accept = False
@@ -125,7 +125,29 @@ def re_to_nfa(postfix):
             nfa1.end.arrows.append(end)
             # Point arrow from nfa1's end state to nfa1's start state.
             nfa1.end.arrows.append(nfa1.start)
-            #  Create new NFA with previously created start state as it's start state and previously created end state as it's end state.
+            # Create new NFA with previously created start state as it's start state and previously created end state as it's end state.
+            nfa = NFA(start, end)
+            # Push new NFA to NFA stack.
+            stack.append(nfa)
+
+        # Zero or One
+        # Else if current character is special character zero or more '?'
+        elif c == '?':
+            # Pop off and store NFA at the top of NFA stack.
+            nfa1 = stack[-1]
+            stack = stack[:-1]
+            # Create a start state and end state.
+            start = State(None, [], False)
+            end = State(None, [], True)
+            # Point arrow from newly made start state to start state of nfa1.
+            start.arrows.append(nfa1.start)
+            # Point arrow from start state to newly made end state.
+            start.arrows.append(end)
+            # Set nfa1's end state to non-accept.
+            nfa1.end.accept = False
+            # Point arrow from nfa1 end state to newly made end state.
+            nfa1.end.arrows.append(end)
+            # Create new NFA with previously created start state as it's start state and previously created end state as it's end state.
             nfa = NFA(start, end)
             # Push new NFA to NFA stack.
             stack.append(nfa)

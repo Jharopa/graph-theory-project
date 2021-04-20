@@ -57,13 +57,13 @@ A string can then be checked against the resulting NFA by begining in the NFAs s
 
 The algorithm builds the overall NFA from the postfix regular expression in a recursive manner, creating smaller NFAs when a operand character is read in from the regular expression. An example of a NFA for the character `a` would be structured like this:
 
-![a NFA](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aNFA.PNG")
+![a NFA](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aNFA.png)
 
 (Note. The state with the arrow coming in from nowhere is the start state and the double circle is the accept state) 
 
 This NFA is then added to a stack and the process is repeated until an operator is read. When an operator is read the last one or two operand NFA(s) (amount dependant on the operator read) created and pushed to the stack previously, are popped off the stack and used to created a larger NFA which is then pushed back onto the stack. An example of a NFA for the expression `ab|` would be structured like this:
 
-![a OR b]("https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aorb.png")
+![a OR b](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aorb.png)
 
 (Note. 1.) The new location of the start and accept state for the greater NFA. 2.) The `ε` character, this represents the empty string character, more on this later)
 

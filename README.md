@@ -82,7 +82,7 @@ This program allows for the following regular expression operators:
 | Or | \| | ![Or](https://github.com/Jharopa/Markdown/blob/main/readme_media/or.png) |
 | Zero or Many | * | ![Kleene](https://github.com/Jharopa/Markdown/blob/main/readme_media/kleene.png) |
 | Zero or one | ? | ![Zero or one](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/zeroorone.png) |
-| One or More | + | ![One or More](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/oneormore.pngg) |
+| One or More | + | ![One or More](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/oneormore.png) |
 
 The implemention of Thompson's Contruction algorithm used in this program can be found in `thompson.py` and is made up of the python classes `State` and `NFA` along with the function `re_to_nfa`.
 

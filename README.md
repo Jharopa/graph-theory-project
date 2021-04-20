@@ -79,4 +79,6 @@ This program allows for the following regular expression operators:
 
 The implemention of Thompson's Contruction algorithm used in this program can be found in `thompson.py` and is made up of the python classes `State` and `NFA`. 
 
+### String Matching Algorithm
+
 ## Awnsers

@@ -57,16 +57,26 @@ A string can then be checked against the resulting NFA by begining in the NFAs s
 
 The algorithm builds the overall NFA from the postfix regular expression in a recursive manner, creating smaller NFAs when a operand character is read in from the regular expression. An example of a NFA for the character `a` would be structured like this:
 
-<img src="https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aNFA.PNG" width="450" height="150">![]()
+![a NFA](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aNFA.PNG")
 
 (Note. The state with the arrow coming in from nowhere is the start state and the double circle is the accept state) 
 
 This NFA is then added to a stack and the process is repeated until an operator is read. When an operator is read the last one or two operand NFA(s) (amount dependant on the operator read) created and pushed to the stack previously, are popped off the stack and used to created a larger NFA which is then pushed back onto the stack. An example of a NFA for the expression `ab|` would be structured like this:
 
-<img src="https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aorb.png" width="600" height="250">
+![a OR b]("https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aorb.png")
 
 (Note. 1.) The new location of the start and accept state for the greater NFA. 2.) The `ε` character, this represents the empty string character, more on this later)
 
 The previous steps are then repeated until the entire regular expression has been read through and the full NFA has been built and assembled.
+
+This program allows for the following regular expression operators:
+
+| Operation | Symbol | Resulting NFA |
+| --- | --- | --- |
+| Concatenation | . | ![Concatenation](https://github.com/Jharopa/Markdown/blob/main/readme_media/concat.png) |
+| Or | \| | ![Or](https://github.com/Jharopa/Markdown/blob/main/readme_media/or.png) |
+| Zero or Many | * | ![Kleene](https://github.com/Jharopa/Markdown/blob/main/readme_media/kleene.png) |
+
+The implemention of Thompson's Contruction algorithm used in this program can be found in `thompson.py` and is made up of the python classes `State` and `NFA`. 
 
 ## Awnsers

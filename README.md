@@ -77,8 +77,13 @@ This program allows for the following regular expression operators:
 | Or | \| | ![Or](https://github.com/Jharopa/Markdown/blob/main/readme_media/or.png) |
 | Zero or Many | * | ![Kleene](https://github.com/Jharopa/Markdown/blob/main/readme_media/kleene.png) |
 
-The implemention of Thompson's Contruction algorithm used in this program can be found in `thompson.py` and is made up of the python classes `State` and `NFA`. 
+The implemention of Thompson's Contruction algorithm used in this program can be found in `thompson.py` and is made up of the python classes `State` and `NFA` along with the function `re_to_nfa`. 
 
 ### String Matching Algorithm
+The string matching algorithm, used to match a given string against the NFA created from a regular expression, is implemented again in `thompson.py`, found in the `NFA` classes member function `match`. This `match` function subsequently uses the recursive helper function `followes` which is a member function of the class `State`.
+
+The algorithm takes a string as its input and tests it against the previously constructed NFA. This is done by begining in the start state of the NFA and and iterating over the input string's characters then following a transition to the next state if the transitions symbol matches the current string character. It is important to highlight that the input string can have multiple instances of itself in multiple states at any given time(Hence the 'Non-Deterministic'), with the `ε` symbol transitions being followed as soon as the state with these transitions have been entered. An instance of the string in a given state will no longer be followed if there is no way for the current string to transition to another state
+
+The input string's characters are completly run through and the string is siad to have 'matched' the NFA, and the regular expression it has been constructed from, if when all string characters have been iterated over at least one instance of the string is in the NFA's accept state.
 
 ## Awnsers

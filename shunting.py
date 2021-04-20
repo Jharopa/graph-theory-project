@@ -14,13 +14,13 @@ def shunt(infix):
     postfix = ""
     # Shunting yard stack.
     stack = ""
-    #Operator precedence(* = ? > . > |).
-    prec = {'*': 100, '?': 100, '.': 90, '|': 80}
+    #Operator precedence(* = ? = + > . > |).
+    prec = {'*': 100, '?': 100, '+':100, '.': 90, '|': 80}
 
     # Loop through the function input a character at a time.
     for c in infix:
         # If c is an operator.
-        if c in {'*', '?', '.', '|'}:
+        if c in {'*', '?', '+', '.', '|'}:
             # Check what is on the shunting yard stack.
             while len(stack) > 0 and stack[-1] != '(' and prec[stack[-1]] >= prec[c]:
                 # Append operator to top of output stack.

@@ -14,9 +14,9 @@ import thompson
 def test_shunt():
     """Tests the regular expression infix to postfix conversion implemented in the shunt()"""
     # List of regular expressions in infix notation.
-    infixs   = ['', 'a', 'a.a', 'a.b', 'a|c', 'a*', 'x*.y.z', 'a.(b.b)*.a', '1.(0.0)*.1', '1.(0.1)*.(1|0)']
+    infixs   = ['', 'a', 'a.a', 'a.b', 'a|c', 'a*', 'a?', 'a+','x*.y.z', 'a.(b.b)+.a', '1.(0.0)?.1', '1.(0.1)*.(1|0)']
     # List of regular expressions in postfix notation.
-    expected = ['', 'a', 'aa.', 'ab.', 'ac|', 'a*', 'x*y.z.','abb.*.a.', '100.*.1.', '101.*.10|.']
+    expected = ['', 'a', 'aa.', 'ab.', 'ac|', 'a*', 'a?', 'a+','x*y.z.','abb.+.a.', '100.?.1.', '101.*.10|.']
 
     print("Tests for Shunting Yard algorithm function shunt() found in shunting.py\n")
 
@@ -42,6 +42,7 @@ def test_nfa():
         ["a.(b.b)*.a", ["aa", "abba", "aba", "abbbba"]],
         ["1.(0.0)*.1", ["11", "100001", "11001", "111"]],
         ["1.0?.1", ["10", "1", "11","101"]],
+        ["a.b+.a", ["ab", "aa", "aba", "abbba"]],
     ]
 
     # Counter for tests.

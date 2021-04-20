@@ -50,6 +50,11 @@ An implementation of the [Shunting Yard algorithm](https://en.wikipedia.org/wiki
 
 An excellent illustration of this process can be found [here](https://upload.wikimedia.org/wikipedia/commons/2/24/Shunting_yard.svg) (Note. this illustration uses the operators `+ - x`, however the algorithm can also be applied to regular expressions and it's operators). This algorithm is neccessary for this program as the next algorithm, Thompson's Construction, requires regular expression in postfix notation as its input.
 
+Resources used to understand and implement Thompson's Construction:
+- Lecture by Ian McLoughlin found [here](https://web.microsoftstream.com/video/9ddadf79-1e30-46d9-b1b5-63070e6d7a10)
+- Youtube video going through a working example found [here](https://www.youtube.com/watch?v=Jd71l0cHZL0)
+- Shunting Yard Wikipedia page found [here](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
+
 ### Thompson's Construction Algorithm
 Thompson's Construction is an algorithm that, as mentioned before, takes a regular expression in postfix notation as its input then, using that regular expression and a stack data structure, builds and outputs a Non-Deterministic Finite Automaton(NFA) representing said regular expression. 
 
@@ -77,7 +82,14 @@ This program allows for the following regular expression operators:
 | Or | \| | ![Or](https://github.com/Jharopa/Markdown/blob/main/readme_media/or.png) |
 | Zero or Many | * | ![Kleene](https://github.com/Jharopa/Markdown/blob/main/readme_media/kleene.png) |
 
-The implemention of Thompson's Contruction algorithm used in this program can be found in `thompson.py` and is made up of the python classes `State` and `NFA` along with the function `re_to_nfa`. 
+The implemention of Thompson's Contruction algorithm used in this program can be found in `thompson.py` and is made up of the python classes `State` and `NFA` along with the function `re_to_nfa`.
+
+Resources used to understand and implement Thompson's Construction:
+- Medium article by Gregory Cernera found [here](https://medium.com/swlh/visualizing-thompsons-construction-algorithm-for-nfas-step-by-step-f92ef378581b)
+- Blog post by Russ Cox found [here](https://swtch.com/~rsc/regexp/regexp1.html)
+- Lectures by Ian McLoughlin found [here](https://web.microsoftstream.com/video/d6d9a2d8-b23e-4abf-b1b7-af3a2d44b82f), [here](https://web.microsoftstream.com/video/634e1883-ad11-447f-971a-cb7965355c13?referrer=https:%2F%2Flearnonline.gmit.ie%2F) and [here](https://web.microsoftstream.com/video/4012d43a-bb46-4ceb-8aa9-2ae598539a32)
+- Thompson's Construction Wikipedia page found [here](https://en.wikipedia.org/wiki/Thompson%27s_construction)
+
 
 ### String Matching Algorithm
 The string matching algorithm, used to match a given string against the NFA created from a regular expression, is implemented again in `thompson.py`, found in the `NFA` classes member function `match`. This `match` function subsequently uses the recursive helper function `followes` which is a member function of the class `State`.
@@ -87,6 +99,9 @@ The algorithm takes a string as its input and tests it against the previously co
 It is important to highlight that the input string can have multiple instances of itself in multiple states at any given time(Hence the 'Non-Deterministic'), with the `ε` symbol transitions being followed as soon as the state with these transitions have been entered. An instance of the string in a given state will no longer be followed if there is no way for the current string to transition to another state
 
 The input string's characters are completly run through and the string is siad to have 'matched' the NFA, and the regular expression it has been constructed from, if when all string characters have been iterated over at least one instance of the string is in the NFA's accept state. In this programs implementation the function `match` will return `True` if this condition is met and `False` otherwise.
+
+Resources used to understand and implement String Matching Algorithm:
+- Lectures by Ian McLoughlin found [here](https://web.microsoftstream.com/video/8fe195b7-f7c3-4265-86bc-7ff2c367eee9), [here](https://web.microsoftstream.com/video/0f3d8f6f-68c9-42d0-9449-b7f868888efe) and [here](https://web.microsoftstream.com/video/59770e5a-2fed-4575-a4eb-0fd691b77d54)
 
 ### File Searching Algorithm
 A comparatively simple algorithm, takes a regular expression and file name string as input, builds a NFA from the regular expression, then opens the file with the name provided and reads in the file line by line. Each line is passed to the NFA's matching function and then displayed to the CLI if matching function returns `True`, otherwise it is not displayed.

@@ -84,6 +84,6 @@ The string matching algorithm, used to match a given string against the NFA crea
 
 The algorithm takes a string as its input and tests it against the previously constructed NFA. This is done by begining in the start state of the NFA and and iterating over the input string's characters then following a transition to the next state if the transitions symbol matches the current string character. It is important to highlight that the input string can have multiple instances of itself in multiple states at any given time(Hence the 'Non-Deterministic'), with the `ε` symbol transitions being followed as soon as the state with these transitions have been entered. An instance of the string in a given state will no longer be followed if there is no way for the current string to transition to another state
 
-The input string's characters are completly run through and the string is siad to have 'matched' the NFA, and the regular expression it has been constructed from, if when all string characters have been iterated over at least one instance of the string is in the NFA's accept state.
+The input string's characters are completly run through and the string is siad to have 'matched' the NFA, and the regular expression it has been constructed from, if when all string characters have been iterated over at least one instance of the string is in the NFA's accept state. In this programs implementation the function `match` will return `True` if this condition is met and `False` otherwise.
 
 ## Awnsers

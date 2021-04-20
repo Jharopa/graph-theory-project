@@ -14,8 +14,8 @@ def shunt(infix):
     postfix = ""
     # Shunting yard stack.
     stack = ""
-    #Operator precedence(* > . > |).
-    prec = {'*': 100, '.': 90, '|': 80}
+    #Operator precedence(* = ? > . > |).
+    prec = {'*': 100, '?': 100, '.': 90, '|': 80}
 
     # Loop through the function input a character at a time.
     for c in infix:

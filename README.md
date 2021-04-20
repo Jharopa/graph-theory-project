@@ -51,15 +51,22 @@ An implementation of the [Shunting Yard algorithm](https://en.wikipedia.org/wiki
 An excellent illustration of this process can be found [here](https://upload.wikimedia.org/wikipedia/commons/2/24/Shunting_yard.svg) (Note. this illustration uses the operators `+ - x`, however the algorithm can also be applied to regular expressions and it's operators). This algorithm is neccessary for this program as the next algorithm, Thompson's Construction, requires regular expression in postfix notation as its input.
 
 ### Thompson's Construction Algorithm
-Thompson's Construction is an algorithm that, as mentioned before, takes a regular expression in postfix notation as its input then, using that regular expression characters and a stack data structure, builds and outputs a Non-Deterministic Finite Automaton(NFA) representing said regular expression. 
+Thompson's Construction is an algorithm that, as mentioned before, takes a regular expression in postfix notation as its input then, using that regular expressionand a stack data structure, builds and outputs a Non-Deterministic Finite Automaton(NFA) representing said regular expression. 
 
-A string can then be checked against the resulting NFA by, starting in the NFAs start state and iterating through each character in the string, traversing between the NFAs states depending on the current character. The string being said to have "matched" the NFA, and the regular expression it was built from, if the string is in the NFAs accept state by the time every character in the string has been iterated through.
+A string can then be checked against the resulting NFA by begining in the NFAs start state and iterating through each character in the string, traversing between the NFAs states depending on the current character. The string can then be said to have "matched" the NFA, and the regular expression it was built from, if the string is in the NFAs accept state by the time every character in the string has been iterated through.
 
-The algorithm builds the overall NFA from the postfix regular expression in a recursive manner, creating smaller NFAs when a operand character is read in from the regular expression. An example of the resulting NFA for the character `a` would be structured like this:
-(Note the state with the arrow coming in from nowhere is the start state and the double circle is the accept state) 
+The algorithm builds the overall NFA from the postfix regular expression in a recursive manner, creating smaller NFAs when a operand character is read in from the regular expression. An example of a NFA for the character `a` would be structured like this:
 
-This NFA is then added to a stack and the process is repeated until an operator is read. When an operator is read the last one or two (depending on the operator read) operand NFA(s) created and pushed to the stack previously, are popped of the stack and used to created a larger NFA which is then pushed back onto the stack. An example of the resulting NFA for expression `ab|` would be structured like this:
-(Note that 1.) The new location of the start and accept state for the greater NFA. 2.) The `ε` character, this represents the empty string character, more on this later)
-The previous steps are the repeated until the entire regular expression has been read through and the full NFA has been built and assembled.
+<img src="https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aNFA.PNG" width="450" height="150">![]()
+
+(Note. The state with the arrow coming in from nowhere is the start state and the double circle is the accept state) 
+
+This NFA is then added to a stack and the process is repeated until an operator is read. When an operator is read the last one or two operand NFA(s) (amount dependant on the operator read) created and pushed to the stack previously, are popped off the stack and used to created a larger NFA which is then pushed back onto the stack. An example of a NFA for the expression `ab|` would be structured like this:
+
+<img src="https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/aorb.png" width="600" height="250">
+
+(Note. 1.) The new location of the start and accept state for the greater NFA. 2.) The `ε` character, this represents the empty string character, more on this later)
+
+The previous steps are then repeated until the entire regular expression has been read through and the full NFA has been built and assembled.
 
 ## Awnsers

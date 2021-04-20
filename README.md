@@ -32,7 +32,7 @@ Before running the program you must provide the text file you would like to sear
 
 The program can then be run using the command `python script.py <regex> <file>` where the `<regex>` is the regular expression you would like to search against and `<file>` is the name of the file you would like to search. Included in this repo is a text file called `lorem.txt` used as part of the tests, using this command to search this file would look like this:
 ```bash
-python scripts.py "(a.b|b*)" example.txt
+python scripts.py "(<.c.a.l.o.r.i.e.s.>)|(<./.c.a.l.o.r.i.e.s.>)" example.txt
 ```
 The regular expression should be enclosed in quotes when the `|` character is used as it is an operator used by many system CLI's and the qoutes indicate to the CLI that the `|` should be read as part of the regular expression string.
 
@@ -87,5 +87,8 @@ The algorithm takes a string as its input and tests it against the previously co
 It is important to highlight that the input string can have multiple instances of itself in multiple states at any given time(Hence the 'Non-Deterministic'), with the `ε` symbol transitions being followed as soon as the state with these transitions have been entered. An instance of the string in a given state will no longer be followed if there is no way for the current string to transition to another state
 
 The input string's characters are completly run through and the string is siad to have 'matched' the NFA, and the regular expression it has been constructed from, if when all string characters have been iterated over at least one instance of the string is in the NFA's accept state. In this programs implementation the function `match` will return `True` if this condition is met and `False` otherwise.
+
+### File Searching Algorithm
+A comparatively simple algorithm, takes a regular expression and file name string as input, builds a NFA from the regular expression, then opens the file with the name provided and reads in the file line by line. Each line is passed to the NFA's matching function and then displayed to the CLI if matching function returns `True`, otherwise it is not displayed.
 
 ## Awnsers

@@ -109,3 +109,28 @@ Resources used to understand and implement String Matching Algorithm:
 A comparatively simple algorithm, takes a regular expression and file name string as input, builds a NFA from the regular expression, then opens the file with the name provided and reads in the file line by line. Each line is passed to the NFA's matching function and then displayed to the CLI if matching function returns `True`, otherwise it is not displayed.
 
 ## Awnsers
+
+### What is a regular expression?
+
+Before defining regular expressions, there are several prerequisite definitions required to fully understand what a regular expression is, those being: 
+
+1. An alphabet is finite set of symbols, an example being `Σ = {a, b}`.
+2. A word over an alphabet is a finite sequence of letters from said alphabet, some examples for the alphabet `Σ = {a, b}` being a, b, ab, abbba.
+3. These words are be grouped together into sets based on thier lenght, examples being `Σ¹ = {a, b}`, `Σ² = {aa, ab, ba, bb}`, ... and so on.
+    * It should also be noted that the set `Σ° = {ε}` where `ε` represents the empty string character.
+4. The set of all words over an alphabet is denoted with a \*, for example `Σ = {a, b}` would be `Σ*`.
+5. A formal language over an alphabet is a subset of this alphabets set of all words, for example a formal language over `Σ = {a, b}` is a subset of `Σ*`.
+6. A regular language is a a subset of a formal language that is accepted by some Deterministic Finite Atomaton(DFA) and equvilantly some Non-Deterministic Finite Atomaton(NFA) (All DFAs have an equvilant NFA and vice versa).
+
+Finally we come to the original question, what is a regular expression? A regular expression is a syntactical representation of a regular language, meaining it is a syntax for defining a particular subset of the set of all word sets over a given alphabet, where this subset is accepted by some DFA or NFA, an example being the regular expression `a.(b.b)*.a` over the alphabet `Σ = {a, b}` represents the set `{aa, abba, abbbba, ...}`.
+
+This definition was formalized by the American mathematician [Stephen Cole Kleene](https://en.wikipedia.org/wiki/Stephen_Cole_Kleene) in the 1950s. The above describes regular expressions formally in relation to the fields of theoretical computer science and formal language theory. 
+
+Regular expressions can be applied practically however, being used in numerous computer applications that require string-searching algorithms for "find" or "find and replace" operations on strings. Regular expression's are also found in the standard libraries of every popular programming language.
+
+The syntax of regular expressions in its simplest form are made up of operators and operands such as the ones described in the Thopmson's Construction section above. These syntaxes, however, have little practicle use unless they are used alongside a regex processor algorithm that turns regular expressions into NFAs that can then be used by a computer to test a given string or set of strings.
+
+Resources used to research this awnser:
+- The Wikipedia page for regular expressions found [here](https://en.wikipedia.org/wiki/Regular_expression)
+- Yuval Filmus' awnser to a post on the Computer Science Stack Exchange found [here](https://cs.stackexchange.com/questions/55013/what-is-the-difference-between-formal-language-regular-language-and-regular-exp)
+- Lectures by Ian McLoughlin found [here](https://web.microsoftstream.com/video/11a99321-8e4e-4456-9f11-8b2ca1787f29?referrer=https:%2F%2Flearnonline.gmit.ie%2F) and [here](https://web.microsoftstream.com/video/166bc23b-d814-42f6-90df-5748712026bc)

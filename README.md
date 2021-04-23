@@ -134,3 +134,28 @@ Resources used to research this awnser:
 - The Wikipedia page for regular expressions found [here](https://en.wikipedia.org/wiki/Regular_expression)
 - Yuval Filmus' awnser to a post on the Computer Science Stack Exchange found [here](https://cs.stackexchange.com/questions/55013/what-is-the-difference-between-formal-language-regular-language-and-regular-exp)
 - Lectures by Ian McLoughlin found [here](https://web.microsoftstream.com/video/11a99321-8e4e-4456-9f11-8b2ca1787f29?referrer=https:%2F%2Flearnonline.gmit.ie%2F) and [here](https://web.microsoftstream.com/video/166bc23b-d814-42f6-90df-5748712026bc)
+
+### How do regular expressions differ across implementations?
+Different implementations of regular expressions, that being the different implementations of regular expression engines, vary from language to language and library to library. A small example list of languages and libraies with different regular expression engines are Perl, Python, Java, GNU BRE/ERE, POSIX BRE/ERE, JGsoft, .NET. When refering to these different regular expression engine implementations they are siad to be different flavors of regular expressions.
+
+As these different flavors of regular expressions are their own implementations some offer features that others don't. An example of a feature that exsists in some regular expression flavors and dosent in others would be the use of the `\Q...\E` where the ... can be replaced with a series of operands you would like to escape, allowing them to be interpreted as thier literal characters. This feature is avaible in JGsoft, .NET and Perl but only avalible in Java 6 and up and not avalible at all in Python or GNU.
+
+Another example of a feature avalible in some regular expression flavors but not in others is the support of the use of Unicode characters in regular expressions. This can be found in JGsoft, Java and .NET but not in GNU BRE/ERE or POSIX BRE/ERE. This can be broken down further with certain regular expression flavors offering UTF8 but not UTF16.
+
+Regular expression flavors also have syntactical differences even when the features are common and shared. These features will be equvialnt however they use different characters to represent the same feature. An example being the characters `{}[]()` will have different meanings and be used for different features depending on the flavor.
+
+Resources used to research this awnser:
+- The site Regular-Expressions.info found [here](https://www.regular-expressions.info/quickstart.html)
+- The comparison charts found in a Github README [here](https://gist.github.com/CMCDragonkai/6c933f4a7d713ef712145c5eb94a1816)
+
+### Can all formal languages be encoded as regular expressions?
+As per the previous definitions of formal language, regular language and regular expressions, it should be noted that this question can be reformmated to "Is all formal language also regular language?" as regular expressions, in their formal definition, are simply syntatical definitions of a regular language. This question can also be posed as "Can all formal language be accepted by a Finte Automaton(DFA or NFA)?" as all regular language is formal languge that is accepted by a DFA or NFA.
+
+Therefore this question can be asnwered quite simply by finding an example of a formal language that cannot be represented with a Finite Automaton. An example of this would be the following, take the alpahbet `Σ = {a, b}` now consider the formal language `{aⁿbⁿ}` where `n ≥ 0`. Clearly this cannot be recognized by a Finite Automaton as there is no way for a Finite Automaton, with finite memory, to remember the exact number of a's and reproduce the exact number of b's. This can be further proven using the [Myhill–Nerode theorem](https://en.wikipedia.org/wiki/Myhill%E2%80%93Nerode_theorem) or the [pumping lemma](https://en.wikipedia.org/wiki/Pumping_lemma_for_regular_languages).
+
+This means that there does exsist formal language that cannot be accepted by a Finite Automaton, therefore there is formal language that is also not regular language and therefore there is formal language that cannot be encoded as regular expressions. So to return to the original question no, not all formal languge can be encoded by regular expressions.
+
+It should be noted however that some regular expression engines implement features that allow for this type of seraching, this however is done by extenstion of regular expressions, regular language and Finite Automaton and can not be considered conformant to the formal definition of these things. 
+
+Resources used to research this awnser:
+- The Wikipedia page on regular language found [here](https://en.wikipedia.org/wiki/Regular_language#Location_in_the_Chomsky_hierarchy)

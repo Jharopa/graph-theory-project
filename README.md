@@ -78,9 +78,9 @@ This program allows for the following regular expression operators:
 
 | Operation | Symbol | Resulting NFA |
 | --- | --- | --- |
-| Concatenation | . | ![Concatenation](https://github.com/Jharopa/Markdown/blob/main/readme_media/concat.png) |
-| Or | \| | ![Or](https://github.com/Jharopa/Markdown/blob/main/readme_media/or.png) |
-| Zero or Many | * | ![Kleene](https://github.com/Jharopa/Markdown/blob/main/readme_media/kleene.png) |
+| Concatenation | . | ![Concatenation](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/concat.png) |
+| Or | \| | ![Or](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/or.png) |
+| Zero or Many | * | ![Kleene](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/kleene.png) |
 | Zero or one | ? | ![Zero or one](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/zeroorone.png) |
 | One or More | + | ![One or More](https://github.com/Jharopa/graph-theory-project/blob/main/readme_media/oneormore.png) |
 
